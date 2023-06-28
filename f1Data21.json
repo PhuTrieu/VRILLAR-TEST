@@ -1,0 +1,182 @@
+[
+    {
+        "pos": "1",
+        "no": "1",
+        "driver": "Max Verstappen",
+        "car": "Red Bull Racing RBPT",
+        "laps": "51",
+        "time": "1:34:05.941",
+        "pts": "25"
+    },
+    {
+        "pos": "2",
+        "no": "11",
+        "driver": "Sergio Perez",
+        "car": "Red Bull Racing RBPT",
+        "laps": "51",
+        "time": "+20.823s",
+        "pts": "19"
+    },
+    {
+        "pos": "3",
+        "no": "63",
+        "driver": "George Russell",
+        "car": "Mercedes",
+        "laps": "51",
+        "time": "+45.995s",
+        "pts": "15"
+    },
+    {
+        "pos": "4",
+        "no": "44",
+        "driver": "Lewis Hamilton",
+        "car": "Mercedes",
+        "laps": "51",
+        "time": "+71.679s",
+        "pts": "12"
+    },
+    {
+        "pos": "5",
+        "no": "10",
+        "driver": "Pierre Gasly",
+        "car": "AlphaTauri RBPT",
+        "laps": "51",
+        "time": "+77.299s",
+        "pts": "10"
+    },
+    {
+        "pos": "6",
+        "no": "5",
+        "driver": "Sebastian Vettel",
+        "car": "Aston Martin Aramco Mercedes",
+        "laps": "51",
+        "time": "+84.099s",
+        "pts": "8"
+    },
+    {
+        "pos": "7",
+        "no": "14",
+        "driver": "Fernando Alonso",
+        "car": "Alpine Renault",
+        "laps": "51",
+        "time": "+88.596s",
+        "pts": "6"
+    },
+    {
+        "pos": "8",
+        "no": "3",
+        "driver": "Daniel Ricciardo",
+        "car": "McLaren Mercedes",
+        "laps": "51",
+        "time": "+92.207s",
+        "pts": "4"
+    },
+    {
+        "pos": "9",
+        "no": "4",
+        "driver": "Lando Norris",
+        "car": "McLaren Mercedes",
+        "laps": "51",
+        "time": "+92.556s",
+        "pts": "2"
+    },
+    {
+        "pos": "10",
+        "no": "31",
+        "driver": "Esteban Ocon",
+        "car": "Alpine Renault",
+        "laps": "51",
+        "time": "+108.184s",
+        "pts": "1"
+    },
+    {
+        "pos": "11",
+        "no": "77",
+        "driver": "Valtteri Bottas",
+        "car": "Alfa Romeo Ferrari",
+        "laps": "50",
+        "time": "+1 lap",
+        "pts": "0"
+    },
+    {
+        "pos": "12",
+        "no": "23",
+        "driver": "Alexander Albon",
+        "car": "Williams Mercedes",
+        "laps": "50",
+        "time": "+1 lap",
+        "pts": "0"
+    },
+    {
+        "pos": "13",
+        "no": "22",
+        "driver": "Yuki Tsunoda",
+        "car": "AlphaTauri RBPT",
+        "laps": "50",
+        "time": "+1 lap",
+        "pts": "0"
+    },
+    {
+        "pos": "14",
+        "no": "47",
+        "driver": "Mick Schumacher",
+        "car": "Haas Ferrari",
+        "laps": "50",
+        "time": "+1 lap",
+        "pts": "0"
+    },
+    {
+        "pos": "15",
+        "no": "6",
+        "driver": "Nicholas Latifi",
+        "car": "Williams Mercedes",
+        "laps": "50",
+        "time": "+1 lap",
+        "pts": "0"
+    },
+    {
+        "pos": "16",
+        "no": "18",
+        "driver": "Lance Stroll",
+        "car": "Aston Martin Aramco Mercedes",
+        "laps": "46",
+        "time": "DNF",
+        "pts": "0"
+    },
+    {
+        "pos": "NC",
+        "no": "20",
+        "driver": "Kevin Magnussen",
+        "car": "Haas Ferrari",
+        "laps": "31",
+        "time": "DNF",
+        "pts": "0"
+    },
+    {
+        "pos": "NC",
+        "no": "24",
+        "driver": "Guanyu Zhou",
+        "car": "Alfa Romeo Ferrari",
+        "laps": "23",
+        "time": "DNF",
+        "pts": "0"
+    },
+    {
+        "pos": "NC",
+        "no": "16",
+        "driver": "Charles Leclerc",
+        "car": "Ferrari",
+        "laps": "21",
+        "time": "DNF",
+        "pts": "0"
+    },
+    {
+        "pos": "NC",
+        "no": "55",
+        "driver": "Carlos Sainz",
+        "car": "Ferrari",
+        "laps": "8",
+        "time": "DNF",
+        "pts": "0"
+    }
+]
