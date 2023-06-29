@@ -197,7 +197,7 @@ export default function HomePage() {
                             color: '#05060c',
                             textDecoration: title === "RACES" ? (item.grandPrix === detail ? 'underline' : 'none') :
                               (title === "DRIVERS" ? (item.driver === detail ? 'underline' : 'none') :
-                                (title === "TEAMS" && item.team === detail ? 'underline' : 'none')),
+                              (title === "TEAMS" && item.team === detail ? 'underline' : 'none')),
                             textDecorationColor: '#e10600',
                             textDecorationThickness: '3px',
                             '&:hover': {
@@ -220,8 +220,8 @@ export default function HomePage() {
                         >
                           {
                             title === "RACES" ? item.grandPrix :
-                              (title === "DRIVERS" ? item.driver :
-                                (title === "TEAMS" && item.team))
+                            (title === "DRIVERS" ? item.driver :
+                            (title === "TEAMS" && item.team))
                           }
                         </Button>
                       }
@@ -238,12 +238,12 @@ export default function HomePage() {
         detail === "All"
           ?
           (title === "RACES" ? (<RacesBody year={year} title={title} data={arrDetail} />) :
-            ((title === "DRIVERS") ? (<DriversBody year={year} title={title} data={arrDetail} />) :
-              ((title === "TEAMS") && (<TeamsBody year={year} title={title} data={arrDetail} />))))
+          ((title === "DRIVERS") ? (<DriversBody year={year} title={title} data={arrDetail} setYear={setYear}/>) :
+          ((title === "TEAMS") && (<TeamsBody year={year} title={title} data={arrDetail} setYear={setYear}/>))))
           :
-          (title === "RACES" ? (<RaceDetail year={year} title={title} detail={detail} data={arrInfoDetail} />) :
-            ((title === "DRIVERS") ? (<DriverDetail year={year} title={title} detail={detail} data={arrInfoDetail} />) :
-              ((title === "TEAMS") && (<TeamDetail year={year} title={title} detail={detail} data={arrInfoDetail} />))))
+          (title === "RACES" ? (<RaceDetail year={year} title={title} detail={detail} data={arrInfoDetail} setDetail={setDetail} arrDetail={arrDetail}/>) :
+          ((title === "DRIVERS") ? (<DriverDetail year={year} title={title} detail={detail} data={arrInfoDetail} setDetail={setDetail} arrDetail={arrDetail}/>) :
+          ((title === "TEAMS") && (<TeamDetail year={year} title={title} detail={detail} data={arrInfoDetail} setDetail={setDetail} arrDetail={arrDetail}/>))))
       }
     </>
   )

@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import data from '../../data';
+import React, { useEffect, useState } from 'react'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,9 +6,43 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, FormControl, Grid, InputLabel, NativeSelect, Typography } from '@mui/material';
+import BarChart from '../Charts/BarChart';
 
-export default function TeamDetail({year, title, detail, data}) {
+export default function TeamDetail({year, title, detail, data, setDetail, arrDetail}) {
+    const [chart, setChart] = useState({
+        labels: data.map((item) => item.grandPrix),
+        datasets: [
+            {
+                label: `${year} ${title.slice(0, -1)} ACHIEVEMENTS - ${detail.toUpperCase()} POINT`,
+                data: data.map((item) => item.pts),
+                backgroundColor: [
+                    '#e10600',
+                    '#05060c'
+                ],
+                hoverOffset: 4
+            },
+        ],
+    })
+    const [detailData, setDetailData] = useState(detail);
+
+    useEffect(() => {
+        setChart({
+            labels: data.map((item) => item.grandPrix),
+            datasets: [
+                {
+                    label: `${year} ${title.slice(0, -1)} ACHIEVEMENTS - ${detail.toUpperCase()} POINT`,
+                    data: data.map((item) => item.pts),
+                    backgroundColor: [
+                        '#e10600',
+                        '#05060c'
+                    ],
+                    hoverOffset: 4
+                },
+            ],
+        })
+        setDetailData(detail)
+    }, [year, detail, data])
     return (
         <>
             <Box sx={{ flexGrow: 1 }}>
@@ -53,6 +86,56 @@ export default function TeamDetail({year, title, detail, data}) {
                                 </TableBody>
                             </Table>
                         </TableContainer>
+                    </Grid>
+                    <Grid item xs></Grid>
+                </Grid>
+            </Box>
+            <Box sx={{ flexGrow: 1, mt: '50px' }}>
+                <Grid container spacing={3}>
+                    <Grid item xs></Grid>
+                    <Grid item xs={10}>
+                        <Typography variant='h4' marginBottom='10px' fontFamily='Orbitron' sx={{ float: 'left' }}>
+                            CHART:
+                        </Typography>
+                        <Box sx={{ minWidth: 120, mb: "50px" }}>
+                            <FormControl fullWidth>
+                                <InputLabel
+                                    variant="standard"
+                                    htmlFor="uncontrolled-native"
+                                    sx={{
+                                        "&.Mui-focused": {
+                                            color: "#e10600"
+                                        }
+                                    }}
+                                >
+                                    Team
+                                </InputLabel>
+                                <NativeSelect
+                                    value={detailData}
+                                    inputProps={{
+                                        name: 'team',
+                                        id: 'uncontrolled-native',
+                                    }}
+                                    onChange={(e) => {
+                                        setDetailData(e.target.value);
+                                        setDetail(e.target.value);
+                                    }
+                                    }
+                                >
+                                    {
+                                        arrDetail.map((item) => (
+                                            <option
+                                                key={item.team}
+                                                value={item.team}
+                                            >
+                                                {item.team}
+                                            </option>
+                                        ))
+                                    }
+                                </NativeSelect>
+                            </FormControl>
+                        </Box>
+                        <BarChart chartData={chart}/>
                     </Grid>
                     <Grid item xs></Grid>
                 </Grid>
