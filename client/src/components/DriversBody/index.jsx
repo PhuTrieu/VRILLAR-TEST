@@ -169,11 +169,18 @@ export default function DriversBody({ year, title, data, setYear }) {
                                     }
                                 </NativeSelect>
                             </FormControl>
-                        </Box>
-                        <PolarAreaChart chartData={chart} />
-                        <Typography variant='body2' mt='10px'>
-                            {year} F1 - {title} CHAMPIONSHIP POINTS.
-                        </Typography>
+                        </Box><Grid container spacing={3}>
+                            <Grid item xs={2.5}></Grid>
+                            <Grid item xs={7}>
+                                <Box width='100%' display="flex" justifyContent="center">
+                                    <PolarAreaChart chartData={chart} />
+                                </Box>
+                                <Typography variant='body2' mt='10px'>
+                                    {year} F1 - {title} CHAMPIONSHIP POINTS.
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={2.5}></Grid>
+                        </Grid>
                     </Grid>
                     <Grid item xs></Grid>
                 </Grid>

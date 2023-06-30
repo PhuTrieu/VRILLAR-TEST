@@ -29,7 +29,6 @@ export default function RaceDetail({ year, title, detail, data, setDetail, arrDe
                 data: arrTemp.map((item) => item.pts),
                 backgroundColor: [
                     '#e10600',
-                    '#05060c'
                 ],
                 hoverOffset: 4
             },
@@ -46,7 +45,6 @@ export default function RaceDetail({ year, title, detail, data, setDetail, arrDe
                     data: arrTemp.map((item) => item.pts),
                     backgroundColor: [
                         '#e10600',
-                        '#05060c'
                     ],
                     hoverOffset: 4
                 },

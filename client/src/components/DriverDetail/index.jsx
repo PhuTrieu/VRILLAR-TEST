@@ -8,6 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Box, FormControl, Grid, InputLabel, NativeSelect, Typography } from '@mui/material';
 import BarChart from '../Charts/BarChart';
+import LineChart from '../Charts/LineChart';
 
 export default function DriverDetail({year, title, detail, data, setDetail, arrDetail}) {
     const [chart, setChart] = useState({
@@ -17,9 +18,9 @@ export default function DriverDetail({year, title, detail, data, setDetail, arrD
                 label: `${year} ${title.slice(0, -1)} ACHIEVEMENTS - ${detail.toUpperCase()}'s POINT`,
                 data: data.map((item) => item.pts),
                 backgroundColor: [
-                    '#e10600',
-                    '#05060c'
+                    '#f4f4f4',
                 ],
+                borderColor: '#e10600',
                 hoverOffset: 4
             },
         ],
@@ -34,9 +35,9 @@ export default function DriverDetail({year, title, detail, data, setDetail, arrD
                     label: `${year} ${title.slice(0, -1)} ACHIEVEMENTS - ${detail.toUpperCase()}'s POINT`,
                     data: data.map((item) => item.pts),
                     backgroundColor: [
-                        '#e10600',
-                        '#05060c'
+                        '#f4f4f4',
                     ],
+                    borderColor: '#e10600',
                     hoverOffset: 4
                 },
             ],
@@ -139,7 +140,7 @@ export default function DriverDetail({year, title, detail, data, setDetail, arrD
                                 </NativeSelect>
                             </FormControl>
                         </Box>
-                        <BarChart chartData={chart}/>
+                        <LineChart chartData={chart}/>
                     </Grid>
                     <Grid item xs></Grid>
                 </Grid>

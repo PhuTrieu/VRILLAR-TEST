@@ -9,6 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Box, FormControl, Grid, InputLabel, NativeSelect, Typography } from '@mui/material';
 import PolarAreaChart from '../Charts/PolarAreaChart';
+import DoughnutChart from '../Charts/DoughnutChart';
 
 export default function TeamsBody({year, title, data, setYear}) {
     let arrTemp = data.toSorted((a, b) => {
@@ -156,10 +157,18 @@ export default function TeamsBody({year, title, data, setYear}) {
                                 </NativeSelect>
                             </FormControl>
                         </Box>
-                        <PolarAreaChart chartData={chart}/>
-                        <Typography variant='body2' mt='10px'>
-                            {year} F1 - {title} CHAMPIONSHIP POINTS.
-                        </Typography>
+                        <Grid container spacing={3}>
+                            <Grid item xs={2.5}></Grid>
+                            <Grid item xs={7}>
+                                <Box width='100%' display="flex" justifyContent="center">
+                                    <DoughnutChart chartData={chart}/>
+                                </Box>
+                                <Typography variant='body2' mt='10px'>
+                                    {year} F1 - {title} CHAMPIONSHIP POINTS.
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={2.5}></Grid>
+                        </Grid>
                     </Grid>
                     <Grid item xs></Grid>
                 </Grid>

@@ -1,10 +1,10 @@
 import React from 'react'
-import { PolarArea } from 'react-chartjs-2'
+import { Doughnut, Line } from 'react-chartjs-2'
 import { Chart as ChartJS } from 'chart.js/auto'
 
-export default function PolarAreaChart({ chartData }) {
+export default function DoughnutChart({ chartData }) {
     return (
-        <PolarArea 
+        <Doughnut 
             data={chartData}
             width={700}
             height={700}
