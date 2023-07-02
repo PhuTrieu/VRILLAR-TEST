@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
 import { Route, Routes } from 'react-router-dom'
+import ScrolltoTop from './components/Scroll/ScrolltoTop'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
             <Route path='/' element={<HomePage/>}/>
         </Routes>
+        <ScrolltoTop visible={250}/>
         <Footer/>
     </Box>
   )

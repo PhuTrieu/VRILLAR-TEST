@@ -7,9 +7,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, Link, Typography } from '@mui/material';
 
-export default function RacesBody({year, title, data}) {
+export default function RacesBody({year, title, data, setDetail}) {
 
     return (
         <>
@@ -47,7 +47,23 @@ export default function RacesBody({year, title, data}) {
                                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                             >
                                                 <TableCell component="th" scope="row">
-                                                    {row.grandPrix}
+                                                    <Link 
+                                                        sx={{
+                                                            color:"black",
+                                                            '&:hover': {
+                                                                cursor: "pointer"
+                                                            }
+                                                        }}
+                                                        underline='hover'
+                                                        onClick={
+                                                            () => { 
+                                                                setDetail(row.grandPrix); 
+                                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                            }
+                                                        }
+                                                    >
+                                                        {row.grandPrix}
+                                                    </Link>
                                                 </TableCell>
                                                 <TableCell align="left">{row.date}</TableCell>
                                                 <TableCell align="left">{row.winner}</TableCell>
