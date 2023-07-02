@@ -15,6 +15,8 @@ export default function HomePage() {
   const [title, setTitle] = useState(titles[0]);
   const [detail, setDetail] = useState('All');
   const [arrDetail, setArrDetail] = useState(info.races[0].results);
+  const [arrDrivers, setArrDrivers] = useState(info.drivers[0].racers);
+  const [arrTeams, setArrTeams] = useState(info.teams[0].constructors);
   const [arrInfoDetail, setArrInfoDetail] = useState([]);
 
   useEffect(() => {
@@ -25,9 +27,11 @@ export default function HomePage() {
       }
       else if (title === 'DRIVERS') {
         arr = info.drivers.filter(item => item.year === year);
+        setArrDrivers(arr[0].racers);
       }
       else {
         arr = info.teams.filter(item => item.year === year);
+        setArrTeams(arr[0].constructors);
       }
       setArrDetail(arr[0].results);
     }
@@ -237,9 +241,9 @@ export default function HomePage() {
       {
         detail === "All"
           ?
-          (title === "RACES" ? (<RacesBody year={year} title={title} data={arrDetail} />) :
-          ((title === "DRIVERS") ? (<DriversBody year={year} title={title} data={arrDetail} setYear={setYear}/>) :
-          ((title === "TEAMS") && (<TeamsBody year={year} title={title} data={arrDetail} setYear={setYear}/>))))
+          (title === "RACES" ? (<RacesBody year={year} title={title} data={arrDetail} setDetail={setDetail}/>) :
+          ((title === "DRIVERS") ? (<DriversBody year={year} title={title} data={arrDetail} setYear={setYear} setDetail={setDetail} arrDrivers={arrDrivers}/>) :
+          ((title === "TEAMS") && (<TeamsBody year={year} title={title} data={arrDetail} setYear={setYear} setDetail={setDetail} arrTeams={arrTeams}/>))))
           :
           (title === "RACES" ? (<RaceDetail year={year} title={title} detail={detail} data={arrInfoDetail} setDetail={setDetail} arrDetail={arrDetail}/>) :
           ((title === "DRIVERS") ? (<DriverDetail year={year} title={title} detail={detail} data={arrInfoDetail} setDetail={setDetail} arrDetail={arrDetail}/>) :

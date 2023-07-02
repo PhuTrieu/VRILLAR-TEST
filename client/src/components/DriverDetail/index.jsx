@@ -7,7 +7,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Box, FormControl, Grid, InputLabel, NativeSelect, Typography } from '@mui/material';
-import BarChart from '../Charts/BarChart';
 import LineChart from '../Charts/LineChart';
 
 export default function DriverDetail({year, title, detail, data, setDetail, arrDetail}) {

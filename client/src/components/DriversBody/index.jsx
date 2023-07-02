@@ -7,10 +7,27 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Box, FormControl, Grid, InputLabel, NativeSelect, Typography } from '@mui/material';
+import { Box, FormControl, Grid, InputLabel, Link, NativeSelect, Typography } from '@mui/material';
 import PolarAreaChart from '../Charts/PolarAreaChart';
+import LineChart from '../Charts/LineChart';
 
-export default function DriversBody({ year, title, data, setYear }) {
+export default function DriversBody({ year, title, data, setYear, setDetail, arrDrivers }) {
+    let arrDriversTemp = arrDrivers.toSorted((a, b) => {
+        let fa = a.racer,
+            fb = b.racer;
+        if (fa < fb) {
+            return -1;
+        }
+        if (fa > fb) {
+            return 1;
+        }
+        return 0;
+    });
+    const arrGrandPrix = [];
+    arrDriversTemp[0].achievements.map(item => {
+        arrGrandPrix.push(item.grandPrix);
+    })
+
     let arrTemp = data.toSorted((a, b) => {
         let fa = a.driver,
             fb = b.driver;
@@ -43,14 +60,29 @@ export default function DriversBody({ year, title, data, setYear }) {
         '#2c1f07',
         '#1a8d6e',
         '#3dccbd',
-        '#bde7c1'
+        '#bde7c1',
+        '#8B8C7A',
+        '#256D7B',
+        '#5E2129'
     ]
+
+    const [driversData, setDriversData] = useState({
+        labels: arrGrandPrix,
+        datasets: arrDriversTemp.map((item, index) => (
+            {
+                label: `${item.racer}'s point`,
+                data: item.achievements.map((achievement) => achievement.pts),
+                borderColor: bgColor[index],
+                backgroundColor: bgColor[index],
+            }
+        ))
+    });
 
     const [chart, setChart] = useState({
         labels: arrTemp.map((item) => item.driver),
         datasets: [
             {
-                label: `${year} ${title.slice(0, -1)} POINT`,
+                label: `${year} RACER's TOTAL POINT`,
                 data: arrTemp.map((item) => item.pts),
                 backgroundColor: bgColor,
                 hoverOffset: 4
@@ -64,12 +96,23 @@ export default function DriversBody({ year, title, data, setYear }) {
             labels: arrTemp.map((item) => item.driver),
             datasets: [
                 {
-                    label: `${year} ${title.slice(0, -1)} POINT`,
+                    label: `${year} RACER's TOTAL POINT`,
                     data: arrTemp.map((item) => item.pts),
                     backgroundColor: bgColor,
                     hoverOffset: 4
                 },
             ],
+        })
+        setDriversData({
+            labels: arrGrandPrix,
+            datasets: arrDriversTemp.map((item, index) => (
+                {
+                    label: `${item.racer}'s point`,
+                    data: item.achievements.map((achievement) => achievement.pts),
+                    borderColor: bgColor[index],
+                    backgroundColor: bgColor[index],
+                }
+            ))
         })
         setYearData(year)
     }, [year, data])
@@ -111,7 +154,25 @@ export default function DriversBody({ year, title, data, setYear }) {
                                                 <TableCell component="th" scope="row">
                                                     {row.pos}
                                                 </TableCell>
-                                                <TableCell align="left">{row.driver}</TableCell>
+                                                <TableCell align="left">
+                                                    <Link 
+                                                        sx={{
+                                                            color:"black",
+                                                            '&:hover': {
+                                                                cursor: "pointer"
+                                                            }
+                                                        }}
+                                                        underline='hover'
+                                                        onClick={
+                                                            () => { 
+                                                                setDetail(row.driver); 
+                                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                            }
+                                                        }
+                                                    >
+                                                        {row.driver}
+                                                    </Link>
+                                                </TableCell>
                                                 <TableCell align="left">{row.nationality}</TableCell>
                                                 <TableCell align="left">{row.car}</TableCell>
                                                 <TableCell align="left">{row.pts}</TableCell>
@@ -169,14 +230,21 @@ export default function DriversBody({ year, title, data, setYear }) {
                                     }
                                 </NativeSelect>
                             </FormControl>
-                        </Box><Grid container spacing={3}>
+                        </Box>
+                        <Box>
+                            <LineChart chartData={driversData} />
+                        </Box>
+                        <Typography variant='body2' mb='50px'>
+                            {year} F1 - RACER'S POINTS.
+                        </Typography>
+                        <Grid container spacing={3}>
                             <Grid item xs={2.5}></Grid>
                             <Grid item xs={7}>
                                 <Box width='100%' display="flex" justifyContent="center">
                                     <PolarAreaChart chartData={chart} />
                                 </Box>
                                 <Typography variant='body2' mt='10px'>
-                                    {year} F1 - {title} CHAMPIONSHIP POINTS.
+                                    {year} F1 - RACER'S TOTAL POINTS.
                                 </Typography>
                             </Grid>
                             <Grid item xs={2.5}></Grid>
