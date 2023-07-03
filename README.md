@@ -14,7 +14,6 @@
       - On the row of the table, detail data will be shown when driver, team, and grand prix are selected.
     - Chart: Where to show the data.
       - The drop-down above the chart provides options for what to show in the chart.
-      - Above the chart you will see the drop-down menu where you can select directly to change the detail of the title, then the chart will be changed automatically.
 - Install and run the project:
   - Git clone the project.
   - Open project on Visual Studio Code or another IDE.
