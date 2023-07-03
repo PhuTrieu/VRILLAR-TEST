@@ -21,3 +21,4 @@
   - Open terminal.
   - From the project go to the client folder and type on terminal 'npm install' to install the required dependencies.
   - Then in the client folder type on terminal 'npm run dev' to run the project.
+- Link Demo: https://f1-results-2023.netlify.app/
